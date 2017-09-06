@@ -1,8 +1,8 @@
 package com.hendisantika.springmvcemail.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * To change this template use File | Settings | File Templates.
  */
 
-@Controller
+@RestController
 @RequestMapping({"/","/home"})
 public class HomeController {
     @RequestMapping(method = RequestMethod.GET)
     public String showHomePage() {
-        return "home";
+        return "home - Spring MVC Email";
     }
 }
