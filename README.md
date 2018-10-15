@@ -4,7 +4,9 @@ Example Spring MVC project to send email from web form.
 
 Installing and Running
 
-Just run the Spring Boot application. Type http://localhost:8080 in your browser to open the application.
+Just run the Spring Boot application --> `mvn clean spring-boot:run`.
+
+Type http://localhost:8080 in your browser to open the application.
 
 Sending test emails
 
