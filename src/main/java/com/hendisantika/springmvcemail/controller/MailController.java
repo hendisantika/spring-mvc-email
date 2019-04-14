@@ -10,7 +10,10 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -89,6 +92,8 @@ public class MailController {
         }
 
         model.addAttribute("mailObject", new MailObject());
+        logger.info("props : {}" + props);
+        logger.info("labels : {}" + labels);
         return "mail/send";
     }
 
@@ -97,6 +102,7 @@ public class MailController {
                              @ModelAttribute("mailObject") @Valid MailObject mailObject,
                              Errors errors) {
         if (errors.hasErrors()) {
+            logger.info("Error: " + errors.getAllErrors());
             return "mail/send";
         }
         emailService.sendSimpleMessage(mailObject.getTo(),
@@ -105,9 +111,10 @@ public class MailController {
         logger.info("mailObject : {}" + mailObject);
 
         return "redirect:/home";
+
     }
 
-    @RequestMapping(value = "/sendTemplate", method = RequestMethod.POST)
+    @PostMapping("/sendTemplate")
     public String createMailWithTemplate(Model model,
                                          @ModelAttribute("mailObject") @Valid MailObject mailObject,
                                          Errors errors) {
@@ -118,11 +125,11 @@ public class MailController {
                 mailObject.getSubject(),
                 template,
                 mailObject.getText());
-
+        logger.info("mailObject : {}" + mailObject);
         return "redirect:/home";
     }
 
-    @RequestMapping(value = "/sendAttachment", method = RequestMethod.POST)
+    @PostMapping(value = "/sendAttachment")
     public String createMailWithAttachment(Model model,
                                            @ModelAttribute("mailObject") @Valid MailObject mailObject,
                                            Errors errors) {
@@ -136,6 +143,7 @@ public class MailController {
                 attachmentPath
         );
 
+        logger.info("mailObject : {}" + mailObject);
         return "redirect:/home";
     }
 }

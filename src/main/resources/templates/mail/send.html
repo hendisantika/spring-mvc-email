@@ -5,14 +5,14 @@
 </head>
 <body>
 <div>
-    <h3 th:text="${headerText}">${headerText}</h3>
+    <h3 th:text="${headerText}">Header Text</h3>
     <form method="POST" modelAttribute="mailObject" th:action="@{/mail/send}" th:object="${mailObject}">
         <fieldset>
             <div style="float:left;">
                 <table cellspacing="0" width="300">
                     <tr>
                         <th><label for="input_to">To</label></th>
-                        <td><input id="input_to" path="to" size="50" type="email"/>
+                        <td><input id="input_to" path="to" size="50" th:field="*{to}" type="email"/>
                             <small>Enter email address</small>
                             <br/>
                             <errors cssStyle="color:red;font-size:small" path="to"/>
@@ -20,7 +20,7 @@
                     </tr>
                     <tr>
                         <th><label for="input_subject">Subject</label></th>
-                        <td><input id="input_subject" path="subject" size="50"/>
+                        <td><input id="input_subject" path="subject" size="50" th:object="*{subject}"/>
                             <small>Enter the subject</small>
                             <br/>
                             <errors cssStyle="color:red;font-size:small" path="subject"/>
@@ -29,7 +29,7 @@
                     <tr>
                         <th><label for="input_text" th:text="${messageLabel}">Message Label:</label></th>
                         <td><textarea cols="50"
-                                      id="input_text" path="text"
+                                      id="input_text" path="text" th:object="*{text}"
                                       rows="5"/>
                             <errors cssStyle="color:red;font-size:small" path="text"/>
                         </td>
@@ -43,9 +43,7 @@
                 </table>
             </div>
             <div style="float:left; word-wrap: break-word; margin-left: 50px; width: 400px; color: grey"
-                 th:text="${additionalInfo}">
-
-            </div>
+                 th:text="${additionalInfo}"/>
         </fieldset>
     </form>
 </div>
