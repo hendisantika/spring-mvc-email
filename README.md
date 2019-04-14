@@ -13,3 +13,9 @@ Type http://localhost:8080 in your browser to open the application.
 ## Sending test emails
 
 Follow UI links to send simple email, email using template or email with attachment.
+
+## Screen shot
+
+Home Page
+
+![Home Page]()
