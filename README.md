@@ -18,18 +18,24 @@ Follow UI links to send simple email, email using template or email with attachm
 
 ## Screen shot
 
-Home Page
+**Home Page**
 
 ![Home Page](img/home.png "Home Page")
 
-Send Simple Email
+**Send Simple Email**
 
 ![Send Simple Email](img/simple.png "Send Simple Email")
 
-Send Email Using Template
+![Receive Simple Email](img/simple2.png "Receive Simple Email")
 
-![Send Email Using Template](img/templates.png "Send Email Using Template")
+**Send Email Using Template**
 
-Send Email With Attachment
+![Send Email Using Template](img/template.png "Send Email Using Template")
 
+![Receive Email Using Template](img/template2.png "Receive Email Using Template")
+
+**Send Email With Attachment
+**
 ![Send Email With Attachment](img/attachment.png "Send Email With Attachment")
+
+![Receive Email With Attachment](img/attachment2.png "Receive Email With Attachment")
