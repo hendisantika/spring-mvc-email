@@ -46,4 +46,13 @@ public class MailObject {
     public void setText(String text) {
         this.text = text;
     }
+
+    @Override
+    public String toString() {
+        return "MailObject{" +
+                "to='" + to + '\'' +
+                ", subject='" + subject + '\'' +
+                ", text='" + text + '\'' +
+                '}';
+    }
 }

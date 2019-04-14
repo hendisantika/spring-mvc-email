@@ -102,13 +102,14 @@ public class MailController {
                              @ModelAttribute("mailObject") @Valid MailObject mailObject,
                              Errors errors) {
         if (errors.hasErrors()) {
+            logger.info("mailObject : {}" + mailObject.toString());
             logger.info("Error: " + errors.getAllErrors());
             return "mail/send";
         }
         emailService.sendSimpleMessage(mailObject.getTo(),
                 mailObject.getSubject(), mailObject.getText());
 
-        logger.info("mailObject : {}" + mailObject);
+        logger.info("mailObject : {}" + mailObject.toString());
 
         return "redirect:/home";
 
@@ -125,7 +126,7 @@ public class MailController {
                 mailObject.getSubject(),
                 template,
                 mailObject.getText());
-        logger.info("mailObject : {}" + mailObject);
+        logger.info("mailObject : {}" + mailObject.toString());
         return "redirect:/home";
     }
 
@@ -143,7 +144,7 @@ public class MailController {
                 attachmentPath
         );
 
-        logger.info("mailObject : {}" + mailObject);
+        logger.info("mailObject : {}" + mailObject.toString());
         return "redirect:/home";
     }
 }
