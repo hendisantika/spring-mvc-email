@@ -101,6 +101,7 @@ public class MailController {
     public String createMail(Model model,
                              @ModelAttribute("mailObject") @Valid MailObject mailObject,
                              Errors errors) {
+        logger.info("================= send ===============");
         if (errors.hasErrors()) {
             logger.info("mailObject : {}" + mailObject.toString());
             logger.info("Error: " + errors.getAllErrors());
@@ -120,6 +121,9 @@ public class MailController {
                                          @ModelAttribute("mailObject") @Valid MailObject mailObject,
                                          Errors errors) {
         if (errors.hasErrors()) {
+            logger.info("================= sendTemplate ===============");
+            logger.info("mailObject : {}" + mailObject.toString());
+            logger.info("Error: " + errors.getAllErrors());
             return "mail/send";
         }
         emailService.sendSimpleMessageUsingTemplate(mailObject.getTo(),
@@ -135,6 +139,9 @@ public class MailController {
                                            @ModelAttribute("mailObject") @Valid MailObject mailObject,
                                            Errors errors) {
         if (errors.hasErrors()) {
+            logger.info("================= sendAttachment ===============");
+            logger.info("mailObject : {}" + mailObject.toString());
+            logger.info("Error: " + errors.getAllErrors());
             return "mail/send";
         }
         emailService.sendMessageWithAttachment(
@@ -145,6 +152,7 @@ public class MailController {
         );
 
         logger.info("mailObject : {}" + mailObject.toString());
+        logger.info("attachmentPath : {}" + attachmentPath);
         return "redirect:/home";
     }
 }
