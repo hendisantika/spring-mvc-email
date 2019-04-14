@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta content="ie=edge" http-equiv="x-ua-compatible"/>
@@ -14,22 +14,24 @@
 <div>
     <div>
         <h4>Select any of the options below to send sample email:</h4>
-        <form method="get" style="width: 200px;">
+        <form method="get" style="width: 200px;" th:object="${action}">
             <fieldset style="border: none; padding-left: 0px; padding-top: 0px">
                 <table>
                     <tr>
                         <td>
-                            <input formaction="mail/send" type="submit" value="Send Simple Email"/>
+                            <input formaction="mail/send" th:field="*{action}" type="submit" value="Send Simple Email"/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input formaction="mail/sendTemplate" type="submit" value="Send Email Using Template"/>
+                            <input formaction="mail/sendTemplate" th:field="*{action}" type="submit"
+                                   value="Send Email Using Template"/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input formaction="mail/sendAttachment" type="submit" value="Send Email With Attachment"/>
+                            <input formaction="mail/sendAttachment" th:field="*{action}"
+                                   type="submit" value="Send Email With Attachment"/>
                         </td>
                     </tr>
                 </table>

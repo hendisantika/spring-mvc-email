@@ -6,7 +6,8 @@
 <body>
 <div>
     <h3 th:text="${headerText}">Header Text</h3>
-    <form action="#" method="POST" modelAttribute="mailObject" th:action="@{/mail/send}" th:object="${mailObject}">
+    <form action="#" method="POST" modelAttribute="mailObject" th:action="@{/mail/__${action}__}"
+          th:object="${mailObject}">
         <fieldset>
             <div style="float:left;">
                 <table cellspacing="0" width="300">
