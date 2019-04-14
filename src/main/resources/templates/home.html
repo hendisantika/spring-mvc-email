@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta content="ie=edge" http-equiv="x-ua-compatible"/>
+    <title>Users</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" rel="stylesheet"/>
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" rel="stylesheet"/>
+</head>
+<body>
+<div>
+    <div>
+        <h4>Select any of the options below to send sample email:</h4>
+        <form method="get" style="width: 200px;">
+            <fieldset style="border: none; padding-left: 0px; padding-top: 0px">
+                <table>
+                    <tr>
+                        <td>
+                            <input formaction="mail/send" type="submit" value="Send Simple Email"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input formaction="mail/sendTemplate" type="submit" value="Send Email Using Template"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input formaction="mail/sendAttachment" type="submit" value="Send Email With Attachment"/>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </div>
+</div>
+</body>
+</html>

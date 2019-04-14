@@ -7,9 +7,6 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.JstlView;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 /**
  * Created by IntelliJ IDEA.
@@ -30,26 +27,26 @@ public class AppConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 
-    @Bean
-    public UrlBasedViewResolver urlBasedViewResolver() {
-        UrlBasedViewResolver resolver = new UrlBasedViewResolver();
-        resolver.setOrder(0);
-        resolver.setPrefix("/WEB-INF/views/");
-        resolver.setSuffix(".jsp");
-        resolver.setCache(false);
-        resolver.setViewClass(JstlView.class);
-        return resolver;
-    }
-
-    @Bean
-    public InternalResourceViewResolver internalResourceViewResolver() {
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setOrder(1);
-        resolver.setPrefix("/WEB-INF/views/");
-        resolver.setSuffix(".jsp");
-        resolver.setViewClass(JstlView.class);
-        return resolver;
-    }
+//    @Bean
+//    public UrlBasedViewResolver urlBasedViewResolver() {
+//        UrlBasedViewResolver resolver = new UrlBasedViewResolver();
+//        resolver.setOrder(0);
+//        resolver.setPrefix("/WEB-INF/views/");
+//        resolver.setSuffix(".jsp");
+//        resolver.setCache(false);
+//        resolver.setViewClass(JstlView.class);
+//        return resolver;
+//    }
+//
+//    @Bean
+//    public InternalResourceViewResolver internalResourceViewResolver() {
+//        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+//        resolver.setOrder(1);
+//        resolver.setPrefix("/WEB-INF/views/");
+//        resolver.setSuffix(".jsp");
+//        resolver.setViewClass(JstlView.class);
+//        return resolver;
+//    }
 
     @Bean
     public SimpleMailMessage templateSimpleMessage() {
