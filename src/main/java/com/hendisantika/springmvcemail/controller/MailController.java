@@ -2,6 +2,8 @@ package com.hendisantika.springmvcemail.controller;
 
 import com.hendisantika.springmvcemail.dto.MailObject;
 import com.hendisantika.springmvcemail.service.EmailServiceImpl;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -30,6 +32,9 @@ import java.util.Set;
 @Controller
 @RequestMapping("/mail")
 public class MailController {
+
+    private Logger logger = LogManager.getLogger(MailController.class);
+
     @Autowired
     public EmailServiceImpl emailService;
 
@@ -96,6 +101,8 @@ public class MailController {
         }
         emailService.sendSimpleMessage(mailObject.getTo(),
                 mailObject.getSubject(), mailObject.getText());
+
+        logger.info("mailObject : {}" + mailObject);
 
         return "redirect:/home";
     }
