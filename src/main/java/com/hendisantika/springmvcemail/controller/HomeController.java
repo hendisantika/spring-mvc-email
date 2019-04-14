@@ -1,6 +1,10 @@
 package com.hendisantika.springmvcemail.controller;
 
+import com.hendisantika.springmvcemail.dto.Action;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -17,9 +21,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping({"/","/home"})
 public class HomeController {
+    private static Logger logger = LogManager.getLogger(HomeController.class);
+
     @GetMapping
-    public String showHomePage() {
+    public String showHomePage(Model model) {
 //        return "home - Spring MVC Email";
+        model.addAttribute("action", new Action());
+        logger.info("action " + model.toString());
         return "home";
     }
 }

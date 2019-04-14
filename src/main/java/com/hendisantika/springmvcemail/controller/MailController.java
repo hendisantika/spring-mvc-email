@@ -57,6 +57,7 @@ public class MailController {
         props.put("headerText", "Send Simple Email");
         props.put("messageLabel", "Message");
         props.put("additionalInfo", "");
+        props.put("action", "send");
         labels.put("send", props);
 
         //Email with template
@@ -67,6 +68,7 @@ public class MailController {
                 "The parameter value will be added to the following message template:<br>" +
                         "<b>This is the test email template for your email:<br>'Template Parameter'</b>"
         );
+        props.put("action", "sendTemplate");
         labels.put("sendTemplate", props);
 
         //Email with attachment
@@ -74,6 +76,7 @@ public class MailController {
         props.put("headerText", "Send Email With Attachment");
         props.put("messageLabel", "Message");
         props.put("additionalInfo", "To make sure that you send an attachment with this email, change the value for the 'attachment.invoice' in the application.properties file to the path to the attachment.");
+        props.put("action", "sendAttachment");
         labels.put("sendAttachment", props);
     }
 
@@ -92,6 +95,7 @@ public class MailController {
         }
 
         model.addAttribute("mailObject", new MailObject());
+        model.addAttribute("labels", labels);
         logger.info("props : {}" + props);
         logger.info("labels : {}" + labels);
         return "mail/send";
@@ -101,7 +105,7 @@ public class MailController {
     public String createMail(Model model,
                              @ModelAttribute("mailObject") @Valid MailObject mailObject,
                              Errors errors) {
-        logger.info("================= send ===============");
+        logger.info("================= send simple Email ===============");
         if (errors.hasErrors()) {
             logger.info("mailObject : {}" + mailObject.toString());
             logger.info("Error: " + errors.getAllErrors());
@@ -121,7 +125,7 @@ public class MailController {
                                          @ModelAttribute("mailObject") @Valid MailObject mailObject,
                                          Errors errors) {
         if (errors.hasErrors()) {
-            logger.info("================= sendTemplate ===============");
+            logger.info("================= send with Template ===============");
             logger.info("mailObject : {}" + mailObject.toString());
             logger.info("Error: " + errors.getAllErrors());
             return "mail/send";
@@ -139,7 +143,7 @@ public class MailController {
                                            @ModelAttribute("mailObject") @Valid MailObject mailObject,
                                            Errors errors) {
         if (errors.hasErrors()) {
-            logger.info("================= sendAttachment ===============");
+            logger.info("================= send with Attachment ===============");
             logger.info("mailObject : {}" + mailObject.toString());
             logger.info("Error: " + errors.getAllErrors());
             return "mail/send";
