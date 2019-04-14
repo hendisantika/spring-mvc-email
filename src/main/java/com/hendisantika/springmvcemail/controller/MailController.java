@@ -8,9 +8,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -71,7 +69,7 @@ public class MailController {
         labels.put("sendAttachment", props);
     }
 
-    @RequestMapping(value = {"/send", "/sendTemplate", "/sendAttachment"}, method = RequestMethod.GET)
+    @GetMapping(value = {"/send", "/sendTemplate", "/sendAttachment"})
     public String createMail(Model model,
                              HttpServletRequest request) {
         String action = request.getRequestURL().substring(
@@ -89,7 +87,7 @@ public class MailController {
         return "mail/send";
     }
 
-    @RequestMapping(value = "/send", method = RequestMethod.POST)
+    @PostMapping("/send")
     public String createMail(Model model,
                              @ModelAttribute("mailObject") @Valid MailObject mailObject,
                              Errors errors) {
