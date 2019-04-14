@@ -27,7 +27,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th><label for="input_text">${messageLabel}:</label></th>
+                        <th><label for="input_text" th:text="${messageLabel}">Message Label:</label></th>
                         <td><textarea cols="50"
                                       id="input_text" path="text"
                                       rows="5"/>
@@ -42,8 +42,9 @@
                     </tr>
                 </table>
             </div>
-            <div style="float:left; word-wrap: break-word; margin-left: 50px; width: 400px; color: grey">
-                ${additionalInfo}
+            <div style="float:left; word-wrap: break-word; margin-left: 50px; width: 400px; color: grey"
+                 th:text="${additionalInfo}">
+
             </div>
         </fieldset>
     </form>
