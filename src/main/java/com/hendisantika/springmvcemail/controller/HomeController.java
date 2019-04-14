@@ -27,7 +27,6 @@ public class HomeController {
     public String showHomePage(Model model) {
 //        return "home - Spring MVC Email";
         model.addAttribute("action", new Action());
-        logger.info("action " + model.toString());
         return "home";
     }
 }

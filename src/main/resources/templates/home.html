@@ -12,11 +12,11 @@
 </head>
 <body>
 <div>
-    <div>
+    <div class="container">
         <h4>Select any of the options below to send sample email:</h4>
         <form method="get" style="width: 200px;" th:object="${action}">
             <fieldset style="border: none; padding-left: 0px; padding-top: 0px">
-                <table>
+                <table class="table">
                     <tr>
                         <td>
                             <input formaction="mail/send" th:field="*{action}" type="submit" value="Send Simple Email"/>
@@ -30,8 +30,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <input formaction="mail/sendAttachment" th:field="*{action}"
-                                   type="submit" value="Send Email With Attachment"/>
+                            <input formaction="mail/sendAttachment" th:field="*{action}" type="submit"
+                                   value="Send Email With Attachment"/>
                         </td>
                     </tr>
                 </table>
