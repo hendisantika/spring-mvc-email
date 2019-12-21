@@ -1,8 +1,8 @@
 package com.hendisantika.springmvcemail.controller;
 
 import com.hendisantika.springmvcemail.dto.Action;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
